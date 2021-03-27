@@ -1,11 +1,11 @@
 ﻿import React from "react";
-import Messages from "./messages.js";
+import Messagefield from "./messagefield";
 
 const App = () => {
     return (
         <>
-        <h1>Hello React!</h1>
-        <Messages />
+            <h1 style={{textAlign: "center"}}>First messanger!</h1>
+            <Messagefield />
         </>
     );
 };
