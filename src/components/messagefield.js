@@ -9,7 +9,7 @@ const Messagefield = () => {
     return (
         <section className="discussion">
             <textarea className='messagefield' onChange={(ev) => newMessage = ev.target.value}></textarea>
-            <button onClick={() => setMessage(prevMessage => prevMessage = newMessage)}>Отправить сообщение</button>
+            <button onClick={() => setMessage(newMessage)}>Отправить сообщение</button>
             <Message message={message} />
         </section>
     );

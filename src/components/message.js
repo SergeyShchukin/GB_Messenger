@@ -18,8 +18,7 @@ const Message = ({ message }) => {
 
     return (
         messages.map((mess, index) => {
-            (mess.author == AUTHORS.user) ? classAutor = "message sender" : classAutor = "message recipient";
-            return <div className={classAutor} key={index}>
+            return <div className={`message ${(mess.author == AUTHORS.user) ? "sender" : "recipient"}`} key={index}>
                 <div className='text'>{mess.text}</div>
                 <div className='author'>{mess.author}</div>
             </div>
