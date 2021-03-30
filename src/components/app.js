@@ -1,13 +1,15 @@
 ﻿import React from "react";
+import Header from "./header";
+import Chatlist from "./chatlist";
 import Messagefield from "./messagefield";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => {
+export default function App() {
     return (
         <>
-            <h1 style={{textAlign: "center"}}>First messanger!</h1>
+            <Header />
+            <Chatlist />
             <Messagefield />
         </>
     );
 };
-
-export default App;

@@ -1,18 +1,38 @@
-﻿import React, { useState } from "react";
+﻿import React, { useState, useEffect, useRef } from "react";
+import { AUTHORS } from "../utils/constants";
 import Message from "./message";
-import '../styles/styles.css';
+import Textaera from "./textaera";
 
-const Messagefield = () => {
-    const [message, setMessage] = useState();
-    let newMessage = ""; // отправка через вспомогательную переменную, чтобы не рендерить при изменении переменной state в textarea
+export default function Messagefield() {
+    const [messages, addMessage] = useState([]);
+    const messagesEndRef = useRef(null); // ссылка для прокрутки на последнее сообщение
+
+    const sendMessage = (text, author) => {
+        if (text)
+            addMessage((prevMess) => [...prevMess, {text: text, author: author}]);
+    }
+
+    useEffect(() => {
+        const lastMessage = messages[messages.length-1];
+        let timeout;
+
+        if (lastMessage?.author == AUTHORS.user) {
+            timeout = setTimeout(() => {
+                sendMessage("Напиши мне что-то интереснее...", AUTHORS.BOT);
+            }, 1000);
+        }
+        messagesEndRef.current.scrollIntoView();
+
+        return () => clearTimeout(timeout);
+    }, [messages]);
 
     return (
-        <section className="discussion">
-            <textarea className='messagefield' onChange={(ev) => newMessage = ev.target.value}></textarea>
-            <button onClick={() => setMessage(newMessage)}>Отправить сообщение</button>
-            <Message message={message} />
-        </section>
+        <div className='discussion'>
+            <div className='messages'>
+                { messages.map(({text, author}, i) => <Message text={text} author={author} key={i} />) }
+                <div ref={messagesEndRef} />
+            </div>
+            <Textaera onSendMessage={sendMessage}/>
+        </div>
     );
 };
-
-export default Messagefield;
