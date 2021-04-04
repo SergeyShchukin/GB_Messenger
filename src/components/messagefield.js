@@ -1,20 +1,15 @@
-﻿import React, { useState, useEffect, useRef, useCallback } from "react";
+﻿import React, { useEffect, useRef } from "react";
 import { AUTHORS } from "../utils/constants";
 import Message from "./message";
 import Textaera from "./textaera";
 
-export default function Messagefield() {
-	const [messages, addMessage] = useState([]);
+export default function Messagefield({ messages, sendMessage }) {
 	const messagesEndRef = useRef(null); // ссылка для прокрутки на последнее сообщение
-
-	const sendMessage = useCallback((text, author) => {
-		if (text) addMessage((prevMess) => [...prevMess, { text: text, author: author }]);
-	}, []);
 
 	useEffect(() => {
 		let timeout;
 
-		if (messages[messages.length - 1]?.author == AUTHORS.user) {
+		if (messages && messages[messages.length - 1]?.author == AUTHORS.user) {
 			timeout = setTimeout(() => {
 				sendMessage("Напиши мне что-то интереснее...", AUTHORS.BOT);
 			}, 1000);
@@ -27,8 +22,8 @@ export default function Messagefield() {
 	return (
 		<div className="messagefield">
 			<div className="messages">
-				{messages.map(({ text, author }, i) => (
-					<Message text={text} author={author} key={i} />
+				{messages?.map(({ text, author, id }) => (
+					<Message text={text} author={author} key={id} />
 				))}
 				<div ref={messagesEndRef} />
 			</div>

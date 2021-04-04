@@ -29,7 +29,7 @@ export default function Textarea({ onSendMessage }) {
 	return (
 		<Form onSubmit={handleSubmit}>
 			<Form.Control as="textarea" onChange={handleChange} onKeyUp={handleKeyUp} onKeyDown={handleKeyDown} value={value} placeholder="Введите текст" />
-			<Button type="submit" block>
+			<Button variant="dark" type="submit" block>
 				Отправить сообщение
 			</Button>
 		</Form>

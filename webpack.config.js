@@ -7,6 +7,7 @@ module.exports = {
 	output: {
 		path: path.join(__dirname, "build"),
 		filename: "bundle.js",
+		publicPath: "/",
 	},
 	devtool: "source-map",
 	module: {
@@ -22,7 +23,16 @@ module.exports = {
 				test: /.(css|scss)$/,
 				use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
 			},
+			{
+				test: /\.(png|jpe?g|gif)$/i,
+				use: {
+					loader: "file-loader",
+				},
+			},
 		],
+	},
+	devServer: {
+		historyApiFallback: true,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
