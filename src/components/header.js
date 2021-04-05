@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
-export default function Header() {
+export default function Header({ chatName }) {
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg">
 			<Link to="/">
@@ -13,6 +13,7 @@ export default function Header() {
 					Профиль
 				</Link>
 			</Nav>
+			<Navbar.Text>{chatName}</Navbar.Text>
 		</Navbar>
 	);
 }

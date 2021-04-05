@@ -10,7 +10,7 @@ export default function App() {
 	const sendChat = useCallback((newChat) => {
 		if (newChat) {
 			addChat((prevChats) => {
-				return [...prevChats, { id: prevChats?.length, name: newChat }];
+				return [...prevChats, { id: "chatId" + prevChats?.length, name: newChat }];
 			});
 		}
 	});
@@ -18,7 +18,6 @@ export default function App() {
 	const [messages, addMessage] = useState({}); // все сообщения по чатам (ключ id)
 	const [messId, setMessId] = useState(0); // уникальный id для сообщений
 	const { chatId } = useParams();
-
 	let location = useLocation();
 
 	const sendMessage = useCallback(
@@ -46,7 +45,7 @@ export default function App() {
 
 	return (
 		<>
-			<Header />
+			<Header chatName={chats.filter((chat) => chat.id == chatId)[0]?.name} />
 			{location.pathname == "/profile" ? (
 				<Profile />
 			) : (
@@ -54,7 +53,7 @@ export default function App() {
 					<Chatlist chats={chats} sendChat={sendChat} />
 					{
 						// защита от добавлений сообщений если в url укажут не существующий id чата
-						chatId in chats.map((chat) => chat.id) ? <Messagefield messages={messages[chatId]} sendMessage={sendMessage} /> : <div className="messagefield">Выберите чат</div>
+						chats.map((chat) => chat.id).indexOf(chatId) != -1 ? <Messagefield messages={messages[chatId]} sendMessage={sendMessage} /> : <div className="messagefield">Выберите чат</div>
 					}
 				</>
 			)}
