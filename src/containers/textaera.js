@@ -4,20 +4,18 @@ import { Button, Form } from "react-bootstrap";
 
 export default function Textarea({ onSendMessage }) {
 	const [value, setValue] = useState();
-
 	const handleChange = (ev) => {
 		setValue(ev.target.value);
 	};
 
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
-		onSendMessage(value, AUTHORS.user);
+		if (value && value.trim()) onSendMessage(value, AUTHORS.user);
 		setValue("");
 	};
-
 	const handleKeyUp = (ev) => {
 		if (!ev.shiftKey && ev.keyCode === 13) {
-			onSendMessage(value, AUTHORS.user);
+			if (value && value.trim()) onSendMessage(value, AUTHORS.user);
 			setValue("");
 		}
 	};

@@ -2,16 +2,21 @@
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { addChat } from "../store/chats/actions";
 
-export default function Chatlist({ chats, sendChat }) {
+export default function Chatlist() {
+	const chats = useSelector((state) => state.chats);
+	const dispatch = useDispatch();
+
 	const [newChat, setNewChat] = useState("");
-
 	const handleChange = (ev) => {
 		setNewChat(ev.target.value);
 	};
+
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
-		sendChat(newChat);
+		if (newChat && newChat.trim()) dispatch(addChat(newChat));
 		setNewChat("");
 	};
 

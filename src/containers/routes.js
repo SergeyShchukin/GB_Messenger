@@ -8,12 +8,12 @@ import Header from "./header";
 export default function Routes() {
 	return (
 		<BrowserRouter>
+			<Header />
 			<Switch>
 				<Route exact path="/">
 					<App />
 				</Route>
 				<Route exact path="/profile">
-					<Header pageName={"Мой профиль"} />
 					<Profile />
 				</Route>
 				<Route exact path="/chat/:chatId">

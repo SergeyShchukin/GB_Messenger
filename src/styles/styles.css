@@ -38,3 +38,7 @@
 	font-style: italic;
 	text-align: end;
 }
+.columnsProf {
+	display: inline-block;
+	padding-inline-start: 50px;
+}
