@@ -3,12 +3,16 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./app";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from "./profile";
-import Header from "./header";
+import HeaderContainer from "./header";
+import { history } from "../store";
+import { ConnectedRouter } from "connected-react-router";
 
 export default function Routes() {
 	return (
 		<BrowserRouter>
-			<Header />
+			{/* подключение connected-react-router */}
+			{/* <ConnectedRouter history={history}> */}
+			<HeaderContainer />
 			<Switch>
 				<Route exact path="/">
 					<App />
@@ -20,6 +24,7 @@ export default function Routes() {
 					<App />
 				</Route>
 			</Switch>
+			{/* </ConnectedRouter> */}
 		</BrowserRouter>
 	);
 }

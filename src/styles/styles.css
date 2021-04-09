@@ -3,6 +3,9 @@
 	vertical-align: top;
 	width: 20%;
 }
+.chatforBotResponse {
+	background-color: #5d8aa8 !important;
+}
 .messagefield {
 	display: inline-block;
 	vertical-align: top;
@@ -14,29 +17,6 @@
 	flex-flow: column;
 	overflow-y: scroll;
 	background-color: #e9e9e9;
-}
-.message {
-	width: 50%;
-	padding: 0.25em 0.75em;
-	margin: 0.0625em;
-	border-bottom-left-radius: 1em;
-	border-top-left-radius: 1em;
-	border-bottom-right-radius: 1em;
-	border-top-right-radius: 1em;
-}
-.sender {
-	align-self: flex-end;
-	background-color: #708090;
-	color: #fff;
-}
-.recipient {
-	align-self: flex-start;
-	background-color: #5d8aa8;
-	color: #fff;
-}
-.author {
-	font-style: italic;
-	text-align: end;
 }
 .columnsProf {
 	display: inline-block;

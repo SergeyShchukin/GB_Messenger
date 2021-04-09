@@ -1,9 +1,9 @@
 ﻿import React, { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { addMessage } from "../store/messages/actions";
+import { removeMessage, botResponse } from "../store/messages/actions";
 import { AUTHORS } from "../utils/constants";
-import Message from "./message";
+import Message from "../components/Message";
 import Textaera from "./textaera";
 
 export default function Messagefield() {
@@ -16,29 +16,24 @@ export default function Messagefield() {
 
 	const sendMessage = useCallback(
 		(text, author) => {
-			dispatch(addMessage(chatId, text, author));
+			dispatch(botResponse(chatId, text, author));
 		},
 		[chatId]
 	);
 
 	useEffect(() => {
-		let timeout;
-
-		if (messages && messages[messages.length - 1]?.author == AUTHORS.user) {
-			timeout = setTimeout(() => {
-				sendMessage("Напиши мне что-то интереснее...", AUTHORS.BOT);
-			}, 1000);
-		}
-		messagesEndRef.current.scrollIntoView();
-
-		return () => clearTimeout(timeout);
+		messagesEndRef.current && messagesEndRef.current.scrollIntoView(false);
 	}, [messages]);
+
+	const handleRemove = (messageId) => {
+		dispatch(removeMessage(messageId));
+	};
 
 	return (
 		<div className="messagefield">
 			<div className="messages">
 				{messages?.map(({ text, author, id }) => (
-					<Message text={text} author={author} key={id} />
+					<Message text={text} author={author} isSender={author == AUTHORS.user} handleRemove={() => handleRemove(id)} key={id} />
 				))}
 				<div ref={messagesEndRef} />
 			</div>

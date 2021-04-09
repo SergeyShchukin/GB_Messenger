@@ -1,13 +1,14 @@
 ﻿import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Header from "../components/Header";
+import { history } from "../store";
 
-export default function Header() {
+export default function HeaderContainer() {
 	const profile = useSelector((state) => state.profile);
 
 	let delimiter = "";
-	if (profile.firstname && profile.lastname) delimiter = " - ";
+	if (profile.firstname || profile.lastname) delimiter = " - ";
 
 	let pageName = "";
 	const location = useLocation();
@@ -30,17 +31,18 @@ export default function Header() {
 			break;
 	}
 
-	return (
-		<Navbar bg="dark" variant="dark" expand="lg">
-			<Link to="/">
-				<Navbar.Brand>First messanger!</Navbar.Brand>
-			</Link>
-			<Nav className="mr-auto">
-				<Link to="/profile" className="nav-link">
-					Профиль
-				</Link>
-			</Nav>
-			<Navbar.Text>{pageName + delimiter + profile.firstname + " " + profile.lastname}</Navbar.Text>
-		</Navbar>
-	);
+	// // connected-react-router
+
+	// const linkHome = () => {
+	// 	history.push("/");
+	// };
+	// const linkProfile = () => {
+	// 	history.push("/profile");
+	// };
+
+	// return (
+	// 	<Header title="First Messenger!" pageName={pageName} username={delimiter + profile.firstname + " " + profile.lastname} linkHome={linkHome} linkProfile={linkProfile} titleProfile="Профиль" />
+	// );
+
+	return <Header title="First Messenger!" pageName={pageName} username={delimiter + profile.firstname + " " + profile.lastname} linkHome="/" linkProfile="/profile" titleProfile="Профиль" />;
 }
