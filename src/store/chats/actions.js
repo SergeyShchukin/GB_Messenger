@@ -16,7 +16,7 @@ export const removeChat = (chatId) => ({
 	payload: chatId,
 });
 
-export const changeChatClassforBotResponse = (chatId) => (dispatch) => {
+export const changeClassChatforBotResponse = (chatId) => (dispatch) => {
 	dispatch(changeClassChat(chatId, "chatforBotResponse"));
 	let timeout = setTimeout(() => {
 		dispatch(changeClassChat(chatId, ""));

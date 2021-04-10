@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import profile_icon from "../images/profile_icon.png";
 import { changeProfile } from "../store/profile/actions";
 import { Col, Container } from "react-bootstrap";
+import { history } from "../store";
 
 export default function Profile() {
 	const profile = useSelector((state) => state.profile);
@@ -43,6 +44,7 @@ export default function Profile() {
 	const handleSubmit = (ev) => {
 		ev.preventDefault();
 		dispatch(changeProfile(value));
+		history.push("/");
 	};
 
 	return (

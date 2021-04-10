@@ -1,6 +1,6 @@
 ﻿import { ADD_MESSAGE, REMOVE_MESSAGE, REMOVE_CHAT_MESSAGES } from "./types";
 import { AUTHORS } from "../../utils/constants";
-import { changeChatClassforBotResponse } from "../chats/actions";
+import { changeClassChatforBotResponse } from "../chats/actions";
 
 export const addMessage = (chatId, text, author) => ({
 	type: ADD_MESSAGE,
@@ -23,7 +23,7 @@ export const botResponse = (chatId, text, author) => (dispatch) => {
 	if (author == AUTHORS.user) {
 		timeout = setTimeout(() => {
 			dispatch(addMessage(chatId, "Напиши мне что-то интереснее...", AUTHORS.BOT));
-			dispatch(changeChatClassforBotResponse(chatId));
+			dispatch(changeClassChatforBotResponse(chatId));
 		}, 1000);
 	}
 	return () => clearTimeout(timeout);

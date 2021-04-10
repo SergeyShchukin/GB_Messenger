@@ -1,28 +1,27 @@
 ﻿import React from "react";
-import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import { history } from "../store";
 
 export default function HeaderContainer() {
 	const profile = useSelector((state) => state.profile);
+	const pathname = useSelector((state) => state.router.location.pathname);
 
 	let delimiter = "";
 	if (profile.firstname || profile.lastname) delimiter = " - ";
 
 	let pageName = "";
-	const location = useLocation();
 
 	switch (true) {
-		case location.pathname == "/profile":
+		case pathname == "/profile":
 			pageName = "Профиль";
 			break;
 
-		case location.pathname.indexOf("/chat") != -1:
+		case pathname.indexOf("/chat") != -1:
 			pageName = "Чат";
 			break;
 
-		case location.pathname == "/":
+		case pathname == "/":
 			pageName = "Главная";
 			break;
 

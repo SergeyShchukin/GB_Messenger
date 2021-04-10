@@ -1,6 +1,5 @@
 ﻿import React, { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
 import { removeMessage, botResponse } from "../store/messages/actions";
 import { AUTHORS } from "../utils/constants";
 import Message from "../components/Message";
@@ -9,7 +8,8 @@ import Textaera from "./textaera";
 export default function Messagefield() {
 	const messagesEndRef = useRef(null); // ссылка для прокрутки на последнее сообщение
 
-	const { chatId } = useParams();
+	const pathname = useSelector((state) => state.router.location.pathname);
+	const chatId = pathname.split("/")[2];
 
 	const messages = useSelector((state) => state.messages[chatId]);
 	const dispatch = useDispatch();
