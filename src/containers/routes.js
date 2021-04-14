@@ -6,6 +6,7 @@ import Profile from "./profile";
 import HeaderContainer from "./header";
 import { history } from "../store";
 import { ConnectedRouter } from "connected-react-router";
+import Factlist from "./catfacts";
 
 export default function Routes() {
 	return (
@@ -20,6 +21,9 @@ export default function Routes() {
 				</Route>
 				<Route exact path="/chat/:chatId">
 					<App />
+				</Route>
+				<Route exact path="/catfacts">
+					<Factlist />
 				</Route>
 			</Switch>
 		</ConnectedRouter>

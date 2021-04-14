@@ -25,6 +25,10 @@ export default function HeaderContainer() {
 			pageName = "Главная";
 			break;
 
+		case pathname == "/catfacts":
+			pageName = "Факты о кошках";
+			break;
+
 		default:
 			pageName = "Мессенджер";
 			break;
@@ -43,5 +47,16 @@ export default function HeaderContainer() {
 	// 	<Header title="First Messenger!" pageName={pageName} username={delimiter + profile.firstname + " " + profile.lastname} linkHome={linkHome} linkProfile={linkProfile} titleProfile="Профиль" />
 	// );
 
-	return <Header title="First Messenger!" pageName={pageName} username={delimiter + profile.firstname + " " + profile.lastname} linkHome="/" linkProfile="/profile" titleProfile="Профиль" />;
+	return (
+		<Header
+			title="First Messenger!"
+			pageName={pageName}
+			username={delimiter + profile.firstname + " " + profile.lastname}
+			linkHome="/"
+			linkProfile="/profile"
+			titleProfile="Профиль"
+			linkFacts="/catfacts"
+			titleFacts="Факты о кошках"
+		/>
+	);
 }

@@ -2,11 +2,13 @@
 import { chatsReducer } from "./chats/reducer";
 import { profileReducer } from "./profile/reducer";
 import { messagesReducer } from "./messages/reducer";
+import { catFactsReducer } from "./catfacts/reducer";
 import thunk from "redux-thunk";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
+import { newtonReducer } from "./newton/reducer";
 
 const persistConfig = {
 	key: "GBMESSENGER",
@@ -24,6 +26,8 @@ const persistedReducer = persistReducer(
 		profile: profileReducer,
 		chats: chatsReducer,
 		messages: messagesReducer,
+		catfacts: catFactsReducer,
+		newton: newtonReducer,
 	})
 );
 

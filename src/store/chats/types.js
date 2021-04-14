@@ -1,3 +1,4 @@
 ﻿export const ADD_CHAT = "CHATS::ADD_CHAT";
 export const CHANGECLASS_CHAT = "CHATS::CHANGECLASS_CHAT";
 export const REMOVE_CHAT = "CHATS::REMOVE_CHAT";
+export const WRITING_CHAT = "CHATS::WRITING_CHAT";

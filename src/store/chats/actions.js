@@ -1,5 +1,5 @@
 ﻿import { removeChatMessages } from "../messages/actions";
-import { ADD_CHAT, CHANGECLASS_CHAT, REMOVE_CHAT } from "./types";
+import { ADD_CHAT, CHANGECLASS_CHAT, REMOVE_CHAT, WRITING_CHAT } from "./types";
 
 export const addChat = (chatName) => ({
 	type: ADD_CHAT,
@@ -14,6 +14,12 @@ export const changeClassChat = (chatId, className) => ({
 export const removeChat = (chatId) => ({
 	type: REMOVE_CHAT,
 	payload: chatId,
+});
+
+// для анимации набора текста собеседником
+export const writingChat = (chatId, isWriting) => ({
+	type: WRITING_CHAT,
+	payload: { id: chatId, isWriting: isWriting },
 });
 
 export const changeClassChatforBotResponse = (chatId) => (dispatch) => {

@@ -2,9 +2,9 @@
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 
-export default function Header({ title, pageName, username, linkHome, linkProfile, titleProfile }) {
+export default function Header({ title, pageName, username, linkHome, linkProfile, titleProfile, linkFacts, titleFacts }) {
 	return (
-		<Navbar bg="dark" variant="dark" expand="lg">
+		<Navbar bg="dark" variant="dark" expand="sm">
 			<Link to={linkHome}>
 				{/* connected-react-router */}
 				{/* <a onClick={linkHome}> */}
@@ -15,6 +15,12 @@ export default function Header({ title, pageName, username, linkHome, linkProfil
 				<Link to={linkProfile} className="nav-link">
 					{/* <a onClick={linkProfile} className="nav-link"> */}
 					{titleProfile}
+					{/* </a> */}
+				</Link>
+
+				<Link to={linkFacts} className="nav-link">
+					{/* <a onClick={linkFacts} className="nav-link"> */}
+					{titleFacts}
 					{/* </a> */}
 				</Link>
 			</Nav>

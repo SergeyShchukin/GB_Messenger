@@ -5,6 +5,7 @@ import { Button, CloseButton, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addChat, removeChatWithMessages } from "../store/chats/actions";
 import { history } from "../store";
+import { RESERVED_CHAT } from "../utils/constants";
 
 export default function Chatlist() {
 	const chats = useSelector((state) => state.chats);
@@ -39,7 +40,7 @@ export default function Chatlist() {
 						{/* <a onClick={() => selectChat(chat.id)} key={chat.id}> */}
 						<ListGroup.Item className={chat.className} action variant="secondary" as="li" eventKey={`#link${chat.id}`}>
 							{chat.name}
-							<CloseButton onClick={() => handleRemove(chat.id)}></CloseButton>
+							{chat.id != RESERVED_CHAT ? <CloseButton onClick={() => handleRemove(chat.id)}></CloseButton> : null}
 						</ListGroup.Item>
 						{/* </a> */}
 					</Link>
