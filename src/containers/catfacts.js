@@ -6,10 +6,9 @@ import { getFacts } from "../store/catfacts/actions";
 export default function Factlist() {
 	const dispatch = useDispatch();
 
-	const state = useSelector((state) => state.catfacts);
-	const facts = state.facts;
-	const error = state.request.error;
-	const loading = state.request.loading;
+	const facts = useSelector((state) => state.catfacts.facts);
+	const error = useSelector((state) => state.catfacts.request.error);
+	const loading = useSelector((state) => state.catfacts.request.loading);
 
 	const requestFacts = () => {
 		dispatch(getFacts());

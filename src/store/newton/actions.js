@@ -20,6 +20,11 @@ export const NewtonResponse = (text) => async (dispatch) => {
 		// dispatch(getResponseRequest());
 
 		const res = await fetch(API.CHAT_WITH_NEWTON + text);
+
+		if (!res.ok) {
+			throw new Error(`Request failed: ${res.statusText} (${res.status})`);
+		}
+
 		const response = await res.json();
 
 		dispatch(getResponseSuccess(response));

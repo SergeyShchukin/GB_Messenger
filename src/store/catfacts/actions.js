@@ -20,6 +20,11 @@ export const getFacts = () => async (dispatch) => {
 		dispatch(getFactsRequest());
 
 		const res = await fetch(API.CAT_FACTS);
+
+		if (!res.ok) {
+			throw new Error(`Request failed: ${res.statusText} (${res.status})`);
+		}
+
 		const result = await res.json();
 
 		dispatch(getFactsSuccess(result));
