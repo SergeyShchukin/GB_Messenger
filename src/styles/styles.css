@@ -1,7 +1,16 @@
 ﻿.chatlist {
 	display: inline-block;
 	vertical-align: top;
-	width: 20%;
+	width: 30%;
+}
+.chatlist .list-group {
+	overflow-y: auto;
+	max-height: 424px;
+}
+.chatlist li {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
 }
 .chatforBotResponse {
 	background-color: #5d8aa8 !important;
@@ -9,11 +18,11 @@
 .messagefield {
 	display: inline-block;
 	vertical-align: top;
-	width: 80%;
+	width: 70%;
 	position: relative;
 }
 .messages {
-	height: 500px;
+	height: 400px;
 	display: flex;
 	flex-flow: column;
 	overflow-y: scroll;
@@ -59,4 +68,47 @@
 	border-top-right-radius: 1em;
 	background-color: #8b7090;
 	color: #fff;
+}
+
+.navbar-brand {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	padding-right: 5px;
+}
+.navbar-text {
+	max-width: 30%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+}
+.navbar-nav {
+	max-width: 40%;
+}
+.nav-link {
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.navbar > a {
+	max-width: 30%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 650px) {
+	.navbar-text {
+		max-width: 40%;
+	}
+	.navbar-nav {
+		max-width: 40%;
+	}
+	.navbar > a {
+		max-width: 20%;
+	}
+	.nav-link {
+		overflow: visible;
+	}
 }

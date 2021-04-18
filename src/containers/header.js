@@ -26,7 +26,7 @@ export default function HeaderContainer() {
 			break;
 
 		case pathname == "/catfacts":
-			pageName = "Факты о кошках";
+			pageName = "Факты";
 			break;
 
 		default:
@@ -56,7 +56,7 @@ export default function HeaderContainer() {
 			linkProfile="/profile"
 			titleProfile="Профиль"
 			linkFacts="/catfacts"
-			titleFacts="Факты о кошках"
+			titleFacts="Факты"
 		/>
 	);
 }

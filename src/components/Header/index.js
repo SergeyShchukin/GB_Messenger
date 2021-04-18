@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+import PushToggle from "../PushToggle";
 
 export default function Header({ title, pageName, username, linkHome, linkProfile, titleProfile, linkFacts, titleFacts }) {
 	return (
@@ -11,6 +12,8 @@ export default function Header({ title, pageName, username, linkHome, linkProfil
 				<Navbar.Brand>{title}</Navbar.Brand>
 				{/* </a> */}
 			</Link>
+			{/* Подписка на push */}
+			{/* <PushToggle /> */}
 			<Nav className="mr-auto">
 				<Link to={linkProfile} className="nav-link">
 					{/* <a onClick={linkProfile} className="nav-link"> */}

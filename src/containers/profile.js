@@ -53,7 +53,7 @@ export default function Profile() {
 				<img src={profile_icon} alt="profile_icon" width="200" height="200" />
 			</div>
 			<div className="columnsProf">
-				<h3>{`${profile.firstname} ${profile.lastname}`}</h3>
+				<h3 style={{ maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis" }}>{`${profile.firstname} ${profile.lastname}`}</h3>
 			</div>
 			<Form onSubmit={handleSubmit}>
 				<Form.Row>

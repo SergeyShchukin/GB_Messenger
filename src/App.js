@@ -5,11 +5,15 @@ import Routes from "./containers/routes";
 import "./styles/styles.css";
 import { PersistGate } from "redux-persist/integration/react";
 import Spinner from "react-bootstrap/Spinner";
+import InstallPopup from "./containers/InstallPopup";
 
 export const App = () => (
-	<Provider store={store}>
-		<PersistGate loading={<Spinner animation="border" />} persistor={persistor}>
-			<Routes />
-		</PersistGate>
-	</Provider>
+	<>
+		<Provider store={store}>
+			<PersistGate loading={<Spinner animation="border" />} persistor={persistor}>
+				<Routes />
+			</PersistGate>
+		</Provider>
+		<InstallPopup />
+	</>
 );
