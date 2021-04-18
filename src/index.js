@@ -4,8 +4,8 @@ import { App } from "./App";
 import "regenerator-runtime/runtime.js";
 
 // для дз по методичке
-// import "./scripts/notifications.js";
-// import "./scripts/swRegistration.js";
+import "./scripts/notifications.js";
+import "./scripts/swRegistration.js";
 
 ReactDOM.render(<App />, document.getElementById("app"));
 

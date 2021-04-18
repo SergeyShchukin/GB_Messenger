@@ -1,0 +1,28 @@
+﻿{
+  "short_name": "Messenger",
+  "name": "First Messenger",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#7ACCE5",
+  "theme_color": "#7ACCE5",
+  "orientation": "any",
+  "gcm_sender_id": "1234567890"
+}

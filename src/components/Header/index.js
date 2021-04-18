@@ -13,7 +13,7 @@ export default function Header({ title, pageName, username, linkHome, linkProfil
 				{/* </a> */}
 			</Link>
 			{/* Подписка на push */}
-			{/* <PushToggle /> */}
+			<PushToggle />
 			<Nav className="mr-auto">
 				<Link to={linkProfile} className="nav-link">
 					{/* <a onClick={linkProfile} className="nav-link"> */}
